@@ -1,0 +1,23 @@
+{
+  "id": "did:example:e79f46b7-0614-4f29-b828-e63f498fcd01",
+  "type": ["VerifiableCredential", "StudentCredential"],
+  "issuer": {
+    "id": "https://student.example/issuers/565049",
+    "name": "Example Student World"
+  },
+  "issuanceDate": "2023-12-01T00:00:00Z",
+  "credentialSubject": {
+    "studentID": "S12345",
+    "name": {
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    "age": 20,
+    "grade": "A",
+    "email": "john.doe@example.com"
+  },
+  "credentialSchema": {
+    "id": "http://localhost:3000/v1/core/identity/v1/student",
+    "type": "JsonSchema"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "issuerKey": {
+    "type": "jwk",
+    "jwk": {
+      "kty": "OKP",
+      "d": "NJ05IJaOCF8opHijCqdiKAPK3xVnLgQHyQAyeoTZnzU",
+      "crv": "Ed25519",
+      "kid": "XQvwdsA59AOl2b18NIgYfQOAFUNuudUMAito1cH_uYw",
+      "x": "GtYfWuaINm64Q1cFoCJxwxPSaEByEaU4WyDTVODSxAA"
+    }
+  },
+  "issuerDid": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiWFF2d2RzQTU5QU9sMmIxOE5JZ1lmUU9BRlVOdXVkVU1BaXRvMWNIX3VZdyIsIngiOiJHdFlmV3VhSU5tNjRRMWNGb0NKeHd4UFNhRUJ5RWFVNFd5RFRWT0RTeEFBIn0",
+  "credentialConfigurationId": "CustomCredential_jwt_vc_json",
+  "credentialData": {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://www.w3.org/ns/credentials/examples/v2"
+    ],
+    "id": "did:example:e79f46b7-0614-4f29-b828-e63f498fcd01",
+    "type": ["VerifiableCredential", "StudentCredential"],
+    "issuer": {
+      "id": "https://student.example/issuers/565049",
+      "name": "Example Student World"
+    },
+    "issuanceDate": "2023-12-01T00:00:00Z",
+    "credentialSubject": {
+      "studentID": "S12345",
+      "name": {
+        "firstName": "pp jaja",
+        "lastName": "olympic"
+      },
+      "age": 20,
+      "grade": "A",
+      "email": "john.doe@example.com"
+    },
+    "credentialSchema": {
+      "id": "https://drive.google.com/file/d/1fzvIaJxC7zTOlVKu80vQXWli06YobLuY/view?usp=sharing",
+      "type": "JsonSchema"
+    }
+  },
+  "mapping": {
+    "id": "<uuid>",
+    "issuer": {
+      "id": "<issuerDid>"
+    },
+    "credentialSubject": {
+      "id": "<subjectDid>"
+    },
+    "issuanceDate": "<timestamp>",
+    "expirationDate": "<timestamp-in:365d>"
+  },
+  "authenticationMethod": "PRE_AUTHORIZED"
+}

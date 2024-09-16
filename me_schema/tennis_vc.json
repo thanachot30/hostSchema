@@ -1,0 +1,57 @@
+{
+  "issuerKey": {
+    "type": "jwk",
+    "jwk": {
+      "kty": "OKP",
+      "d": "NJ05IJaOCF8opHijCqdiKAPK3xVnLgQHyQAyeoTZnzU",
+      "crv": "Ed25519",
+      "kid": "XQvwdsA59AOl2b18NIgYfQOAFUNuudUMAito1cH_uYw",
+      "x": "GtYfWuaINm64Q1cFoCJxwxPSaEByEaU4WyDTVODSxAA"
+    }
+  },
+  "issuerDid": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiWFF2d2RzQTU5QU9sMmIxOE5JZ1lmUU9BRlVOdXVkVU1BaXRvMWNIX3VZdyIsIngiOiJHdFlmV3VhSU5tNjRRMWNGb0NKeHd4UFNhRUJ5RWFVNFd5RFRWT0RTeEFBIn0",
+  "credentialConfigurationId": "CustomCredential_jwt_vc_json",
+  "credentialData": {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://www.w3.org/ns/credentials/examples/v2"
+    ],
+    "id": "urn:uuid:123e4567-e89b-12d3-a456-426614174000",
+    "type": ["VerifiableCredential", "TennisCoachCredential_RQ"],
+    "issuer": {
+      "id": "did:example:123456",
+      "name": "Example Issuer"
+    },
+    "issuanceDate": "2024-09-10T14:25:00Z",
+    "credentialSchema": {
+      "id": "http://localhost:3000/v1/core/identity/v1/tennis_Schema",
+      "type": "JsonSchema"
+    },
+    "credentialSubject": {
+      "@context": [
+        "http://schema.org/",
+        "http://localhost:3000/v1/core/identity/v1/tennis_Schema"
+      ],
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "name": "kru.pp",
+      "age": 27,
+      "experienceYears": 10,
+      "contactDetails": {
+        "email": "krupp@gmail.com",
+        "phone": "0123456789"
+      }
+    }
+  },
+  "mapping": {
+    "id": "<uuid>",
+    "issuer": {
+      "id": "<issuerDid>"
+    },
+    "credentialSubject": {
+      "id": "<subjectDid>"
+    },
+    "issuanceDate": "<timestamp>",
+    "expirationDate": "<timestamp-in:365d>"
+  },
+  "authenticationMethod": "PRE_AUTHORIZED"
+}

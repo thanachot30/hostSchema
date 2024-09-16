@@ -1,0 +1,37 @@
+{
+  "issuerKey": {
+    "type": "jwk",
+    "jwk": {
+      "kty": "OKP",
+      "d": "NJ05IJaOCF8opHijCqdiKAPK3xVnLgQHyQAyeoTZnzU",
+      "crv": "Ed25519",
+      "kid": "XQvwdsA59AOl2b18NIgYfQOAFUNuudUMAito1cH_uYw",
+      "x": "GtYfWuaINm64Q1cFoCJxwxPSaEByEaU4WyDTVODSxAA"
+    }
+  },
+  "issuerDid": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiWFF2d2RzQTU5QU9sMmIxOE5JZ1lmUU9BRlVOdXVkVU1BaXRvMWNIX3VZdyIsIngiOiJHdFlmV3VhSU5tNjRRMWNGb0NKeHd4UFNhRUJ5RWFVNFd5RFRWT0RTeEFBIn0",
+  "credentialConfigurationId": "CustomCredential_jwt_vc_json",
+  "credentialData": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://www.w3.org/2018/credentials/examples/v1"
+    ],
+    "id": 1743,
+    "type": ["VerifiableCredential", "CustomCredential"],
+    "issuer": { "id": "did:web:witty-ground-030524d00.5.azurestaticapps.net" },
+    "issuanceDate": "2024-09-12T12:38:03.553Z",
+    "credentialSubject": {
+      "givenNameTh": "Serenity",
+      "familyNameTh": "Gleason",
+      "nationalId": "4-2471-44444-44-4",
+      "birthDateBe": "09-01-2552"
+    }
+  },
+  "mapping": {
+    "id": "<uuid>",
+    "issuer": { "id": "<issuerDid>" },
+    "credentialSubject": { "id": "<subjectDid>" },
+    "issuanceDate": "<timestamp>",
+    "expirationDate": "<timestamp-in:365d>"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array",
+      "minItems": 0,
+      "items": { "type": "string" }
+    },
+    "id": { "type": "string" },
+    "type": {
+      "type": "array",
+      "minItems": 0,
+      "items": { "type": "string" }
+    },
+    "issuer": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    },
+    "issuanceDate": { "type": "string" },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array",
+          "minItems": 0,
+          "items": { "type": "string" }
+        },
+        "studentID": {
+          "type": "string",
+          "description": "The unique identifier for a student."
+        },
+        "name": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The first name of the student."
+            },
+            "lastName": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The last name of the student."
+            }
+          },
+          "required": ["firstName", "lastName"],
+          "description": "The full name of the student."
+        },
+        "age": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The age of the student in years."
+        },
+        "grade": {
+          "type": "string",
+          "enum": ["A", "B", "C", "D", "E", "F"],
+          "description": "The grade of the student."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The email address of the student."
+        }
+      },
+      "required": ["@context", "studentID", "name", "age", "grade", "email"]
+    },
+    "credentialSchema": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" }
+      },
+      "required": ["id", "type"]
+    }
+  },
+  "required": [
+    "@context",
+    "type",
+    "issuer",
+    "issuanceDate",
+    "credentialSubject",
+    "credentialSchema"
+  ]
+}

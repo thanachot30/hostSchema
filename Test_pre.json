@@ -1,0 +1,17 @@
+{
+  "id": "qOT5D6yzYYMO",
+  "input_descriptors": [
+    {
+      "id": "AttaidCredential",
+      "format": { "jwt_vc_json": { "alg": ["EdDSA"] } },
+      "constraints": {
+        "fields": [
+          {
+            "path": ["$.type"],
+            "filter": { "type": "string", "pattern": "AttaidCredential" }
+          }
+        ]
+      }
+    }
+  ]
+}

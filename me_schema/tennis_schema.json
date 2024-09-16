@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tennis Coach",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Full name of the tennis coach."
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 18,
+      "description": "Age of the coach, must be 18 or older."
+    },
+    "experienceYears": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of years of coaching experience."
+    },
+    "certifications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of certifications the coach has obtained."
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Coach rating between 0 and 5."
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "strategy development",
+          "technique improvement",
+          "fitness training",
+          "mental coaching",
+          "match analysis"
+        ]
+      },
+      "description": "Key coaching skills."
+    },
+    "contactDetails": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address of the coach."
+        },
+        "phone": {
+          "type": "string",
+          "pattern": "^\\+?[0-9]{10,15}$",
+          "description": "Contact phone number with country code."
+        }
+      },
+      "required": ["email"],
+      "description": "Contact information for the coach."
+    },
+    "availability": {
+      "type": "string",
+      "enum": ["full-time", "part-time", "weekends", "weekdays"],
+      "description": "Availability of the coach for coaching sessions."
+    },
+    "bio": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Short biography of the coach."
+    }
+  },
+  "required": ["name", "experienceYears", "contactDetails"],
+  "additionalProperties": false
+}

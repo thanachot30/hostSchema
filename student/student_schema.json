@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Student",
+  "type": "object",
+  "properties": {
+    "studentID": {
+      "type": "string",
+      "description": "The unique identifier for a student."
+    },
+    "name": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The first name of the student."
+        },
+        "lastName": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The last name of the student."
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName"
+      ],
+      "description": "The full name of the student."
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "The age of the student in years."
+    },
+    "grade": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "description": "The grade of the student."
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "The email address of the student."
+    }
+  },
+  "required": [
+    "studentID",
+    "name",
+    "age",
+    "grade",
+    "email"
+  ],
+  "additionalProperties": false
+}

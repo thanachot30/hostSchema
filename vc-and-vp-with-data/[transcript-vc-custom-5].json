@@ -1,0 +1,312 @@
+{
+    "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        "https://www.w3.org/ns/credentials/examples/v2"
+    ],
+    "id": "did:example:76e12ec712ebc6f1c221ebfeb1f",
+    "type": [
+        "VerifiableCredential",
+        "TranscriptCredential"
+    ],
+    "issuer": {
+        "id": "https://university.example/issuers/565049",
+        "name": "Example University"
+    },
+    "issuanceDate": "2023-12-01T00:00:00Z",
+    "credentialSubject": {
+        "@context": [
+            "http://schema.org/",
+            {"sch": "http://schema.org/"},
+            {"teda": "https://schemas-uat.teda.th/teda/teda-objects/common/verified-credential/transcript/schema/"}
+        ],
+        "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+        "teda:documentContext": {
+            "@type": "DigitalDocument",
+            "identifier": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "OID",
+                    "value": "2.16.764.1.4.1.1.8.1.1"
+                }
+            ],
+            "schemaVersion": "1.0",
+            "author": {
+                "@type": "Organization",
+                "name": "ETDA"
+            }
+        },
+        "teda:documentInformation": {
+            "@type": "DigitalDocument",
+            "identifier": {
+                "@type": "PropertyValue ",
+                "propertyID": "Transcript ID",
+                "value": "123456"
+            },
+            "name": "Transcript Name",
+            "additionalType": "รหัสระบุประเภทเอกสาร",
+            "educationalUse": "วัตถุประสงค์",
+            "datePublished": "Issue Date",
+            "description": "Description of the document",
+            "inLanguage": {
+                "@type": "Language",
+                "name": "Thai",
+                "alternateName": "th"
+            }
+        },
+        "teda:student": {
+            "@type": "Person",
+            "identifier": {
+                "@type": "PropertyValue ",
+                "name": "StudenID",
+                "value": "123456"
+            },
+            "honorificPrefix": "นางสาว",
+            "givenName": "ชื่อผู้เรียน",
+            "familyName": "นามสกุล",
+            "gender": "1",
+            "birthDate": "2015-01-30",
+            "nationality": "TH",
+            "teda:residentCountryOrTerritory": {
+                "@type": "PostalAddress",
+                "addressCountry": "TH"
+            },
+            "image": "/examples/jvanzweden_s.jpg",
+            "teda:facultyName": "คณะวิศวกรรมศาสตร์",
+            "teda:programContext": {
+                "@type": "EducationalOccupationalProgram",
+                "identifier": {
+                    "@type": "PropertyValue ",
+                    "name": "ProgramID",
+                    "value": "123456"
+                },
+                "name": "ชื่อหลักสูตร",
+                "programType": [
+                    {
+                        "@type": "DefinedTerm ",
+                        "termCode": "Major",
+                        "name": "กลุ่มสาขาหลัก"
+                    },
+                    {
+                        "@type": "DefinedTerm ",
+                        "termCode": "Minor",
+                        "name": "กลุ่มสาขาย่อย"
+                    },
+                    {
+                        "@type": "DefinedTerm ",
+                        "termCode": "Degree",
+                        "name": "ระดับการศึกษา",
+                        "additionalType": "ประเภทหลักสูตร"
+                    }
+                ],
+                "endDate": "2023-01-01",
+                "numberOfCredits": 8,
+                "programPrerequisites": {
+                    "@type": "EducationalOccupationalCredential",
+                    "educationalLevel": "ป.ตรี",
+                    "recognizedBy": "สถาบันการศึกษาก่อนหน้า"
+                },
+                "educationalCredentialAwarded": "เกียรตินิยมอันดับ 1"
+            }
+        },
+        "educationalOrganization": {
+            "@type": "EducationalOrganization",
+            "identifier": {
+                "@type": "PropertyValue ",
+                "name": "OrganizationID",
+                "value": "123456"
+            },
+            "name": "University Name",
+            "teda:schoolLevel": "ปริญญาตรี",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Street Address",
+                "addressLocality": "City",
+                "addressRegion": "State/Region",
+                "postalCode": "Postal Code",
+                "addressCountry": "Country"
+            },
+            "subOrganization": {
+                "identifier": {
+                    "@type": "PropertyValue",
+                    "name": "CampusID",
+                    "value": "123456"
+                },
+                "name": "Campu Name",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Street Address",
+                    "addressLocality": "City",
+                    "addressRegion": "State/Region",
+                    "postalCode": "Postal Code",
+                    "addressCountry": "Country"
+                }
+            },
+            "teda:registrar": {
+                "@type": "Person",
+                "identifier": {
+                    "@type": "PropertyValue ",
+                    "name": "Registrar ID",
+                    "value": "123456"
+                },
+                "jobTitle": "นายทะเบียน",
+                "honorificPrefix": "นางสาว",
+                "name": "ชื่อ-นามสกุลนายทะเบียน",
+                "email": "email"
+            }
+        },
+        "courseList": {
+            "@type": "ItemList",
+            "itemListElement": [
+                {
+                    "@type": "Course",
+                    "courseCode": "Course Code",
+                    "name": "Computer Science 101",
+                    "additionalType": "หมวดวิชาเทคโนโลยีสารสนเทศ",
+                    "description": "Course Description",
+                    "numberOfCredits": 3,
+                    "teda:creditEarned": 3,
+                    "teda:grade": 4,
+                    "teda:gradeText": "A",
+                    "teda:pointEarned": 12,
+                    "@graph": [
+                        {
+                            "@type": "EducationalOccupationalProgram",
+                            "programType": "ระบบการศึกษา",
+                            "termsPerYear": "2",
+                            "timeToComplete": "4 Years",
+                            "programPrerequisites": {
+                                "@type": "Course",
+                                "description": "Course Transfer",
+                                "courseCode": "Course Code",
+                                "provider": {
+                                    "@type": "CollegeOrUniversity",
+                                    "name": "University of Bristol"
+                                },
+                                "name": "ProgramName"
+                            },
+                            "termDuration": "30h",
+                            "provider": {
+                                "@type": "CollegeOrUniversity",
+                                "identifier": {
+                                    "@type": "PropertyValue ",
+                                    "name": "OrganizationID",
+                                    "value": "123456"
+                                },
+                                "name": "University of Bristol"
+                            },
+                            "description": "",
+                            "occupationalCategory": "",
+                            "url": "",
+                            "hasCourse": {
+                                "@type": "Course",
+                                "courseCode": "Course Code",
+                                "provider": {
+                                    "@type": "person",
+                                    "name": "Mr. Arun",
+                                    "jobTitle": "Teacher",
+                                    "affiliation": {
+                                        "@type": "CollegeOrUniversity",
+                                        "identifier": [
+                                            {
+                                                "@type": "PropertyValue",
+                                                "name": "OrganizationID",
+                                                "value": "1234"
+                                            }
+                                        ],
+                                        "name": "University of Bristol"
+                                    }
+                                },
+                                "usageInfo": [
+                                    {
+                                        "@type": "NoteDigitalDocument",
+                                        "about": "subject",
+                                        "text": "content"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "teda:academicSummary": {
+            "@type": "teda:AcademicSummary",
+            "teda:semesterSummary": [
+                {
+                    "@type": "teda:semester",
+                    "teda:educationTypeSystem": "ทวิภาค",
+                    "teda:semesterName": "ภาคการศึกษา1",
+                    "teda:semesterStatus": "ปกติ",
+                    "teda:year": "2023",
+                    "teda:semesterCreditValue": 60,
+                    "teda:semesterCreditEarned": 45,
+                    "teda:semesterCreditCalculated": 46,
+                    "teda:semesterPointEarned": 120,
+                    "teda:semesterGPA": 3.80,
+                    "teda:semesterGPAX": 3.80,
+                    "teda:remark": ""
+                },
+                {
+                    "@type": "teda:semester",
+                    "teda:educationTypeSystem": "ทวิภาค",
+                    "teda:semesterName": "ภาคการศึกษา2",
+                    "teda:semesterStatus": "ปกติ",
+                    "teda:year": "2023",
+                    "teda:semesterCreditValue": 60,
+                    "teda:semesterCreditEarned": 55,
+                    "teda:semesterCreditCalculated": 50,
+                    "teda:semesterPointEarned": 180,
+                    "teda:semesterGPA": 3.92,
+                    "teda:semesterGPAX": 3.87,
+                    "teda:remark": ""
+                }
+            ],
+            "teda:totalCreditValue": 120,
+            "teda:totalCreditEarned": 100,
+            "teda:totalCreditCalculated": 96,
+            "teda:totalPointEarned": 300,
+            "teda:totalGPAX": 3.87,
+            "teda:remark": ""
+        },
+        "additionalInformation": [
+            {
+                "@type": "Thing",
+                "@graph": [
+                    {
+                        "@type": "EducationalOccupationalCredential",
+                        "award": "รางวัลเกียตินิยม",
+                        "name": "ชื่อรางวัล"
+                    },
+                    {
+                        "@type": "Thesis",
+                        "name": "ชื่อ Thesis"
+                    },
+                    {
+                        "@type": "NoteDigitalDocument",
+                        "about": "subject",
+                        "text": "content"
+                    }
+                ]
+            }
+        ]
+    },
+    "credentialStatus": {
+        "id": "https://example.com/credentials/status/3#94567",
+        "type": "BitstringStatusListEntry",
+        "statusPurpose": "revocation",
+        "statusListIndex": "94567",
+        "statusListCredential": "https://example.com/credentials/status/3"
+    },
+    "credentialSchema":{
+        "id": "https://schemas-uat.teda.th/teda/teda-objects/common/verified-credential/transcript/-/blob/main/schema/transcript_vc_schema.json", 
+        "type": "JsonSchema"
+    },    
+    "proof": {
+        "type": "RsaSignature2018",
+        "created": "2017-06-18T21:19:10Z",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "https://example.edu/issuers/keys/1",
+        "jws": "eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5XsITJX 1CxPCT8yAV-TVkIEq_PbChOMqsLfRoPsnsgw5WEuts01mq-pQy7UJiN5mgRxD-WUcX 16dUEMGlv50aqzpqh4Qktb3rk-BuQy72IFLOqV0G_zS245-kronKb78cPN25DGlcTwLtjP AYuNzVBAh4vGHSrQyHUdBBPM"
+    }
+}
+

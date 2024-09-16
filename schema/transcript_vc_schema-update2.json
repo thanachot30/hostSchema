@@ -1,0 +1,619 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "@context": {"$ref": "#/definitions/@context_type"},
+        "id": {"type": "string"},
+        "type": {"$ref": "#/definitions/@context_type"},
+        "issuer": {"$ref": "#/definitions/issuer_type"},
+        "issuanceDate": {"type": "string"},
+        "credentialSubject": {"$ref": "#/definitions/credentialSubject_type"},
+        "credentialStatus": {"$ref": "#/definitions/credentialStatus_type"},
+        "credentialSchema": {"$ref": "#/definitions/credentialSchema_type"},
+        "proof": {"$ref": "#/definitions/proof_type"}
+    },
+    "required": [
+        "@context",
+        "type",
+        "issuer",
+        "issuanceDate",
+        "credentialSubject" 
+    ],
+    "definitions": {
+        "@context_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {"type": "string"}
+        },
+        "issuer_type": {
+            "type": "object",
+            "properties": {
+                "id": {"type": "string"},
+                "name": {"type": "string"}
+            },
+            "required": [
+                "id",
+                "name"
+            ]
+        },
+        "@context2_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "oneOf": [
+                    {"type": "string"},
+                    {
+                        "type": "object",
+                        "properties": {
+                            "sch": {"type": "string"},
+                            "teda": {"type": "string"}
+                        },
+                        "additionalProperties": false
+                    }
+                ]
+            },
+            "required": ["type"]
+        },
+        "identifier_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "@type": {"type": "string"},
+                    "name": {"type": "string"},
+                    "value": {"type": "string"}
+                },
+                "required": [
+                    "@type",
+                    "name",
+                    "value"
+                ]
+            }
+        },
+        "author_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "name": {"type": "string"}
+            },
+            "required": [
+                "@type",
+                "name"
+            ]
+        },
+        "teda:documentContext_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "identifier": {"$ref": "#/definitions/identifier_type"},
+                "schemaVersion": {"type": "string"},
+                "author": {"$ref": "#/definitions/author_type"}
+            },
+            "required": [
+                "@type",
+                "identifier",
+                "schemaVersion",
+                "author"
+            ]
+        },
+        "identifier2_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "propertyID": {"type": "string"},
+                "value": {"type": "string"}
+            },
+            "required": [
+                "@type",
+                "propertyID",
+                "value"
+            ]
+        },
+        "inLanguage_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "name": {"type": "string"},
+                "alternateName": {"type": "string"}
+            },
+            "required": [
+                "@type",
+                "name",
+                "alternateName"
+            ]
+        },
+        "teda:documentInformation_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "identifier": {"$ref": "#/definitions/identifier2_type"},
+                "name": {"type": "string"},
+                "additionalType": {"type": "string"},
+                "educationalUse": {"type": "string"},
+                "datePublished": {"type": "string"},
+                "description": {"type": "string"},
+                "inLanguage": {"$ref": "#/definitions/inLanguage_type"}
+            },
+            "required": [
+                "@type",
+                "identifier",
+                "additionalType",
+                "datePublished",
+                "inLanguage"
+            ]
+        },
+        "identifier3_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "name": {"type": "string"},
+                "value": {"type": "string"}
+            }
+        },
+        "teda:residentCountryOrTerritory_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "addressCountry": {"type": "string"}
+            }
+        },
+        "programType_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "@type": {"type": "string"},
+                    "termCode": {"type": "string"},
+                    "name": {"type": "string"},
+                    "additionalType": {"type": "string"}
+                },
+                "required": [
+                    "@type",
+                    "name",
+                    "termCode"
+                ]
+            }
+        },
+        "programPrerequisites_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "educationalLevel": {"type": "string"},
+                "recognizedBy": {"type": "string"}
+            },
+            "required": [
+                "@type",
+                "educationalLevel",
+                "recognizedBy"
+            ]
+        },
+        "teda:programContext_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "identifier": {"$ref": "#/definitions/identifier3_type"},
+                "name": {"type": "string"},
+                "programType": {"$ref": "#/definitions/programType_type"},
+                "endDate": {"type": "string"},
+                "numberOfCredits": {"type": "integer"},
+                "programPrerequisites": {"$ref": "#/definitions/programPrerequisites_type"},
+                "educationalCredentialAwarded": {"type": "string"}
+            },
+            "required": [
+                "@type",
+                "identifier",
+                "name",
+                "programType"
+            ]
+        },
+        "teda:student_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "identifier": {"$ref": "#/definitions/identifier3_type"},
+                "honorificPrefix": {"type": "string"},
+                "givenName": {"type": "string"},
+                "familyName": {"type": "string"},
+                "gender": {"type": "string"},
+                "birthDate": {"type": "string"},
+                "nationality": {"type": "string"},
+                "teda:residentCountryOrTerritory": {"$ref": "#/definitions/teda:residentCountryOrTerritory_type"},
+                "image": {"type": "string"},
+                "teda:facultyName": {"type": "string"},
+                "teda:programContext": {"$ref": "#/definitions/teda:programContext_type"}
+            },
+            "required": [
+                "@type",
+                "identifier",
+                "honorificPrefix",
+                "givenName",
+                "familyName",
+                "gender",
+                "birthDate",
+                "nationality",
+                "teda:residentCountryOrTerritory",
+                "image",
+                "teda:facultyName",
+                "teda:programContext"
+            ]
+        },
+        "address_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "streetAddress": {"type": "string"},
+                "addressLocality": {"type": "string"},
+                "addressRegion": {"type": "string"},
+                "postalCode": {"type": "string"},
+                "addressCountry": {"type": "string"}
+            },
+            "required": [
+                "@type",
+                "streetAddress",
+                "addressLocality",
+                "addressRegion",
+                "postalCode",
+                "addressCountry"
+            ]
+        },
+        "subOrganization_type": {
+            "type": "object",
+            "properties": {
+                "identifier": {"$ref": "#/definitions/identifier3_type"},
+                "name": {"type": "string"},
+                "address": {"$ref": "#/definitions/address_type"}
+            },
+            "required": [
+                "identifier",
+                "name",
+                "address"
+            ]
+        },
+        "teda:registrar_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "identifier": {"$ref": "#/definitions/identifier3_type"},
+                "jobTitle": {"type": "string"},
+                "honorificPrefix": {"type": "string"},
+                "name": {"type": "string"},
+                "email": {"type": "string"}
+            },
+            "required": [
+                "@type",
+                "identifier",
+                "jobTitle",
+                "honorificPrefix",
+                "name",
+                "email"
+            ]
+        },
+        "educationalOrganization_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "identifier": {"$ref": "#/definitions/identifier3_type"},
+                "name": {"type": "string"},
+                "teda:schoolLevel": {"type": "string"},
+                "address": {"$ref": "#/definitions/address_type"},
+                "subOrganization": {"$ref": "#/definitions/subOrganization_type"},
+                "teda:registrar": {"$ref": "#/definitions/teda:registrar_type"}
+            },
+            "required": [
+                "@type",
+                "identifier",
+                "name",
+                "address",
+                "subOrganization",
+                "teda:registrar"
+            ]
+        },
+        "programPrerequisites2_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "description": {"type": "string"},
+                "courseCode": {"type": "string"},
+                "provider": {"$ref": "#/definitions/author_type"},
+                "name": {"type": "string"}
+            },
+            "required": [
+                "@type",
+                "description"
+            ]
+        },
+        "provider_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "identifier": {"$ref": "#/definitions/identifier3_type"},
+                "name": {"type": "string"}
+            }
+        },
+        "affiliation_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "identifier": {"$ref": "#/definitions/identifier_type"},
+                "name": {"type": "string"}
+            },
+            "required": [
+                "@type",
+                "identifier",
+                "name"
+            ]
+        },
+        "provider2_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "name": {"type": "string"},
+                "jobTitle": {"type": "string"},
+                "affiliation": {"$ref": "#/definitions/affiliation_type"}
+            },
+            "required": [
+                "@type",
+                "name",
+                "affiliation"
+            ]
+        },
+        "usageInfo_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "@type": {"type": "string"},
+                    "about": {"type": "string"},
+                    "text": {"type": "string"}
+                },
+                "required": [
+                    "@type",
+                    "about",
+                    "text"
+                ]
+            }
+        },
+        "hasCourse_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "courseCode": {"type": "string"},
+                "provider": {"$ref": "#/definitions/provider2_type"},
+                "usageInfo": {"$ref": "#/definitions/usageInfo_type"}
+            }
+        },
+        "@graph_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "@type": {"type": "string"},
+                    "programType": {"type": "string"},
+                    "termsPerYear": {"type": "string"},
+                    "timeToComplete": {"type": "string"},
+                    "programPrerequisites": {"$ref": "#/definitions/programPrerequisites2_type"},
+                    "termDuration": {"type": "string"},
+                    "provider": {"$ref": "#/definitions/provider_type"},
+                    "description": {"type": "string"},
+                    "occupationalCategory": {"type": "string"},
+                    "url": {"type": "string"},
+                    "hasCourse": {"$ref": "#/definitions/hasCourse_type"}
+                },
+                "required": [
+                    "programType",
+                    "programPrerequisites",
+                    "provider",
+                    "@type",
+                    "hasCourse",
+                    "termsPerYear",
+                    "description",
+                    "occupationalCategory",
+                    "timeToComplete",
+                    "url",
+                    "termDuration"
+                ]
+            }
+        },
+        "itemListElement_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "@type": {"type": "string"},
+                    "courseCode": {"type": "string"},
+                    "name": {"type": "string"},
+                    "additionalType": {"type": "string"},
+                    "description": {"type": "string"},
+                    "numberOfCredits": {"type": "integer"},
+                    "teda:creditEarned": {"type": "integer"},
+                    "teda:grade": {"type": "integer"},
+                    "teda:gradeText": {"type": "string"},
+                    "teda:pointEarned": {"type": "integer"},
+                    "@graph": {"$ref": "#/definitions/@graph_type"}
+                },
+                "required": [
+                    "teda:creditEarned",
+                    "additionalType",
+                    "@type",
+                    "courseCode",
+                    "numberOfCredits",
+                    "name",
+                    "@graph",
+                    "description",
+                    "teda:grade",
+                    "teda:pointEarned",
+                    "teda:gradeText"
+                ]
+            }
+        },
+        "courseList_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "itemListElement": {"$ref": "#/definitions/itemListElement_type"}
+            }
+        },
+        "teda:semesterSummary_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "@type": {"type": "string"},
+                    "teda:educationTypeSystem": {"type": "string"},
+                    "teda:semesterName": {"type": "string"},
+                    "teda:semesterStatus": {"type": "string"},
+                    "teda:year": {"type": "string"},
+                    "teda:semesterCreditValue": {"type": "integer"},
+                    "teda:semesterCreditEarned": {"type": "integer"},
+                    "teda:semesterCreditCalculated": {"type": "integer"},
+                    "teda:semesterPointEarned": {"type": "integer"},
+                    "teda:semesterGPA": {"type": "number"},
+                    "teda:semesterGPAX": {"type": "number"},
+                    "teda:remark": {"type": "string"}
+                },
+                "required": [
+                    "teda:semesterName",
+                    "teda:remark",
+                    "teda:year",
+                    "teda:semesterCreditValue",
+                    "teda:semesterCreditEarned",
+                    "@type",
+                    "teda:semesterCreditCalculated",
+                    "teda:semesterGPA",
+                    "teda:semesterPointEarned",
+                    "teda:educationTypeSystem",
+                    "teda:semesterStatus",
+                    "teda:semesterGPAX"
+                ]
+            }
+        },
+        "teda:academicSummary_type": {
+            "type": "object",
+            "properties": {
+                "@type": {"type": "string"},
+                "teda:semesterSummary": {"$ref": "#/definitions/teda:semesterSummary_type"},
+                "teda:totalCreditValue": {"type": "integer"},
+                "teda:totalCreditEarned": {"type": "integer"},
+                "teda:totalCreditCalculated": {"type": "integer"},
+                "teda:totalPointEarned": {"type": "integer"},
+                "teda:totalGPAX": {"type": "number"},
+                "teda:remark": {"type": "string"}
+            },
+            "required": [
+                "@type",
+                "teda:semesterSummary",
+                "teda:totalCreditValue",
+                "teda:totalCreditEarned",
+                "teda:totalCreditCalculated",
+                "teda:totalPointEarned",
+                "teda:totalGPAX",
+                "teda:remark"
+            ]
+        },
+        "@graph2_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "@type": {"type": "string"},
+                    "award": {"type": "string"},
+                    "name": {"type": "string"},
+                    "about": {"type": "string"},
+                    "text": {"type": "string"}
+                },
+                "required": ["@type"]
+            }
+        },
+        "additionalInformation_type": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "@type": {"type": "string"},
+                    "@graph": {"$ref": "#/definitions/@graph2_type"}
+                },
+                "required": [
+                    "@type",
+                    "@graph"
+                ]
+            }
+        },
+        "credentialSubject_type": {
+            "type": "object",           
+                "properties": {
+                    "@context": {"$ref": "#/definitions/@context2_type"},
+                    "id": {"type": "string"},
+                    "teda:documentContext": {"$ref": "#/definitions/teda:documentContext_type"},
+                    "teda:documentInformation": {"$ref": "#/definitions/teda:documentInformation_type"},
+                    "teda:student": {"$ref": "#/definitions/teda:student_type"},
+                    "educationalOrganization": {"$ref": "#/definitions/educationalOrganization_type"},
+                    "courseList": {"$ref": "#/definitions/courseList_type"},
+                    "teda:academicSummary": {"$ref": "#/definitions/teda:academicSummary_type"},
+                    "additionalInformation": {"$ref": "#/definitions/additionalInformation_type"}
+                },
+                "required": [
+                    "teda:documentInformation",
+                    "teda:documentContext",
+                    "additionalInformation",
+                    "teda:student",
+                    "teda:academicSummary",
+                    "courseList",
+                    "id",
+                    "@context",
+                    "educationalOrganization"
+                ]            
+        },
+        "credentialStatus_type": {
+            "type": "object",
+            "properties": {
+                "id": {"type": "string"},
+                "type": {"type": "string"},
+                "statusPurpose": {"type": "string"},
+                "statusListIndex": {"type": "string"},
+                "statusListCredential": {"type": "string"}
+            },
+            "required": [
+                "type",
+                "statusPurpose",
+                "statusListIndex",
+                "statusListCredential"
+            ]
+        },
+        "credentialSchema_type": {
+            "type": "object",
+            "properties": {
+                "id": {"type": "string"},
+                "type": {"type": "string"}
+            },
+            "required": [
+                "id",
+                "type"
+            ]
+        },
+        "proof_type": {
+            "type": "object",
+            "properties": {
+                "type": {"type": "string"},
+                "created": {"type": "string"},
+                "proofPurpose": {"type": "string"},
+                "verificationMethod": {"type": "string"},
+                "jws": {"type": "string"}
+            },
+            "required": [
+                "type",
+                "created",
+                "proofPurpose",
+                "verificationMethod",
+                "jws"
+            ]
+        }
+    }
+}

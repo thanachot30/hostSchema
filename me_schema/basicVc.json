@@ -1,0 +1,51 @@
+{
+  "issuerKey": {
+    "type": "jwk",
+    "jwk": {
+      "kty": "OKP",
+      "d": "NJ05IJaOCF8opHijCqdiKAPK3xVnLgQHyQAyeoTZnzU",
+      "crv": "Ed25519",
+      "kid": "XQvwdsA59AOl2b18NIgYfQOAFUNuudUMAito1cH_uYw",
+      "x": "GtYfWuaINm64Q1cFoCJxwxPSaEByEaU4WyDTVODSxAA"
+    }
+  },
+  "issuerDid": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiWFF2d2RzQTU5QU9sMmIxOE5JZ1lmUU9BRlVOdXVkVU1BaXRvMWNIX3VZdyIsIngiOiJHdFlmV3VhSU5tNjRRMWNGb0NKeHd4UFNhRUJ5RWFVNFd5RFRWT0RTeEFBIn0",
+  "credentialConfigurationId": "CustomCredential_jwt_vc_json",
+  "credentialData": {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://www.w3.org/ns/credentials/examples/v2"
+    ],
+    "id": "urn:uuid:123e4567-e89b-12d3-a456-426614174000",
+    "type": ["VerifiableCredential", "TennisCoachCredential"],
+    "issuer": {
+      "id": "did:example:123456",
+      "name": "Example Issuer"
+    },
+    "issuanceDate": "2024-09-10T14:25:00Z",
+    "credentialSchema": {
+      "id": "https://json-schema.org/draft-07/schema#",
+      "type": "JsonSchemaValidator2018"
+    },
+    "credentialSubject": {
+      "id": "did:example:456",
+      "name": "John Doe",
+      "sport": "tennis",
+      "pet": "dog",
+      "address": "ramintar",
+      "age": "33"
+    }
+  },
+  "mapping": {
+    "id": "<uuid>",
+    "issuer": {
+      "id": "<issuerDid>"
+    },
+    "credentialSubject": {
+      "id": "<subjectDid>"
+    },
+    "issuanceDate": "<timestamp>",
+    "expirationDate": "<timestamp-in:365d>"
+  },
+  "authenticationMethod": "PRE_AUTHORIZED"
+}
