@@ -34,7 +34,7 @@
       "email": "john.doe@example.com"
     },
     "credentialSchema": {
-      "id": "https://drive.google.com/file/d/1fzvIaJxC7zTOlVKu80vQXWli06YobLuY/view?usp=sharing",
+      "id": "https://raw.githubusercontent.com/thanachot30/hostSchema/main/student/student_schema.json",
       "type": "JsonSchema"
     }
   },
