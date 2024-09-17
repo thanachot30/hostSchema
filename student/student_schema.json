@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/thanachot30/hostSchema/main/student/student_schema.json",
   "title": "Student",
   "type": "object",
   "properties": {
@@ -21,10 +22,7 @@
           "description": "The last name of the student."
         }
       },
-      "required": [
-        "firstName",
-        "lastName"
-      ],
+      "required": ["firstName", "lastName"],
       "description": "The full name of the student."
     },
     "age": {
@@ -34,14 +32,7 @@
     },
     "grade": {
       "type": "string",
-      "enum": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F"
-      ],
+      "enum": ["A", "B", "C", "D", "E", "F"],
       "description": "The grade of the student."
     },
     "email": {
@@ -50,12 +41,6 @@
       "description": "The email address of the student."
     }
   },
-  "required": [
-    "studentID",
-    "name",
-    "age",
-    "grade",
-    "email"
-  ],
+  "required": ["studentID", "name", "age", "grade", "email"],
   "additionalProperties": false
 }
