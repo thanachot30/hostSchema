@@ -1,0 +1,49 @@
+{
+  "issuerKey": {
+    "type": "jwk",
+    "jwk": {
+      "kty": "OKP",
+      "d": "Ta3tzTT45rGkTTxOq_eTzMpLN0Ez65rQaoNmVbhXus8",
+      "crv": "Ed25519",
+      "kid": "JT_2G4TS_cvouo2Bx3rODehDqBrQAXRw6Q_HaWf2f5g",
+      "x": "RXsEeHcl4sewje6RgKQZV7ZCv0R32losgo1La3-X48Q"
+    }
+  },
+  "credentialConfigurationId": "UniversityDegree_jwt_vc_json",
+  "credentialData": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://www.w3.org/2018/credentials/examples/v1"
+    ],
+    "id": "http://example.gov/credentials/3732",
+    "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+    "issuer": {
+      "id": "did:web:vc.transmute.world"
+    },
+    "issuanceDate": "2020-03-10T04:24:12.164Z",
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "degree": {
+        "type": "BachelorDegree",
+        "name": "Bachelor of Science and Arts"
+      }
+    },
+    "credentialSchema": {
+      "id": "",
+      "type": "JsonSchema"
+    }
+  },
+  "mapping": {
+    "id": "<uuid>",
+    "issuer": {
+      "id": "<issuerDid>"
+    },
+    "credentialSubject": {
+      "id": "<subjectDid>"
+    },
+    "issuanceDate": "<timestamp>",
+    "expirationDate": "<timestamp-in:365d>"
+  },
+  "authenticationMethod": "PRE_AUTHORIZED",
+  "issuerDid": "did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiSlRfMkc0VFNfY3ZvdW8yQngzck9EZWhEcUJyUUFYUnc2UV9IYVdmMmY1ZyIsIngiOiJSWHNFZUhjbDRzZXdqZTZSZ0tRWlY3WkN2MFIzMmxvc2dvMUxhMy1YNDhRIn0"
+}
